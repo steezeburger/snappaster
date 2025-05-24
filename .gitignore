@@ -1,0 +1,5 @@
+# where snapshots are store
+snapshots/*
+
+# Environment variables
+.env

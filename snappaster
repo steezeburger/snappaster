@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Load environment variables from .env file if it exists
+if [ -f "$(dirname "$0")/.env" ]; then
+  source "$(dirname "$0")/.env"
+fi
+
+# Define save location
+# Use environment variable SNAPSHOT_DIR if set, otherwise use default location
+SAVE_DIR="${SNAPSHOT_DIR:-$HOME/Pictures/snappaster-snapshots}"
+mkdir -p "$SAVE_DIR"
+
+# Generate filename with timestamp
+FILENAME="snapshot_$(date +%Y-%m-%d_%H-%M-%S).jpg"
+FILEPATH="$SAVE_DIR/$FILENAME"
+PNG_FILENAME="${FILENAME%.jpg}.png"
+PNG_FILEPATH="$SAVE_DIR/$PNG_FILENAME"
+
+# Take the picture
+imagesnap -d Logitech "$FILEPATH"
+
+# Convert JPG to PNG
+sips -s format png "$FILEPATH" --out "$PNG_FILEPATH"
+
+# Remove the original JPG file
+rm "$FILEPATH"
+
+# Copy PNG file path to clipboard
+echo -n "$PNG_FILEPATH" | pbcopy
+afplay "$(dirname "$0")/camera_shutter.wav"
