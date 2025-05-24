@@ -3,3 +3,6 @@ snapshots/*
 
 # Environment variables
 .env
+
+# ai
+.claude

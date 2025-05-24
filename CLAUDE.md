@@ -11,7 +11,7 @@ Snappaster is a screenshot utility for macOS that takes webcam snapshots and cop
 - `snappaster` - Main bash script that orchestrates the screenshot workflow
 - `snapshots/` - Directory where captured images are stored with timestamp filenames
 - `camera_shutter.wav` - Audio feedback file played when screenshot is taken
-- `test.sh` - Development testing script for audio playback
+- `justfile` - Task runner with common development commands
 
 ## Dependencies
 
@@ -46,8 +46,8 @@ Manual script execution:
 ## Integration Notes
 
 - Designed to work with `skhd` hotkey daemon for keyboard shortcuts
-- Camera device is hardcoded to "Logitech" - may need adjustment for other webcams
-- Save directory path is hardcoded in the script
+- Camera device may need adjustment for different webcams (use `imagesnap -l` to list available devices)
+- Save directory configurable via SNAPSHOT_DIR environment variable or .env file
 - File naming uses timestamp format: `snapshot_YYYY-MM-DD_HH-MM-SS.png`
 
 ## Claude Code Guidelines

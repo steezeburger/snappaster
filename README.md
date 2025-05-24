@@ -48,3 +48,11 @@ for easy image use with Claude Code and maybe other ai tooling
   ```
 * nice to use with a macropad
   * can bind a key on macropad to call the keyboard shortcut defined w/ skhd
+
+# Common Issues
+
+- Can't find your webcam device name?
+> "Logitech" not found.
+```shell
+imagesnap -l
+```
