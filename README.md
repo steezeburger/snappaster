@@ -4,6 +4,8 @@ A program for MacOS to take a picture with your webcam and put the path in clipb
 for easy image use with Claude Code and maybe other ai tooling. Or set `SNAPSHOT_DIR`
 to a directory in your repo and use your editor's ai tools to work with the images.
 
+![Demo](screens/screen1.png)
+
 ## Setup
 
 1. Make the script executable:
