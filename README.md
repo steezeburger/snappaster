@@ -7,6 +7,7 @@ for easy image use with Claude Code and maybe other ai tooling
 
 1. Make the script executable:
    ```sh
+   cd snappaster
    chmod +x snappaster
    ```
 
