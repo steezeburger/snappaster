@@ -55,9 +55,12 @@ for easy image use with Claude Code and maybe other ai tooling
 ## Common Issues
 
 - Can't find your webcam device name?
-> "Logitech" not found.
 ```shell
 imagesnap -l
+```
+Then set the exact name as an environment variable:
+```shell
+CAMERA_DEVICE="FaceTime HD Camera" ./snappaster
 ```
 
 ## Example Use Cases
