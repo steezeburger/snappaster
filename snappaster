@@ -10,6 +10,10 @@ fi
 SAVE_DIR="${SNAPSHOT_DIR:-$HOME/Pictures/snappaster-snapshots}"
 mkdir -p "$SAVE_DIR"
 
+# Define camera device
+# Use environment variable CAMERA_DEVICE if set, otherwise auto-detect first available
+CAMERA_DEVICE="${CAMERA_DEVICE:-$(imagesnap -l | grep '=>' | head -1 | sed 's/=> //')}"
+
 # Generate filename with timestamp
 FILENAME="snapshot_$(date +%Y-%m-%d_%H-%M-%S).jpg"
 FILEPATH="$SAVE_DIR/$FILENAME"
@@ -17,7 +21,7 @@ PNG_FILENAME="${FILENAME%.jpg}.png"
 PNG_FILEPATH="$SAVE_DIR/$PNG_FILENAME"
 
 # Take the picture
-imagesnap -d Logitech "$FILEPATH"
+imagesnap -d "$CAMERA_DEVICE" "$FILEPATH"
 
 # Convert JPG to PNG
 sips -s format png "$FILEPATH" --out "$PNG_FILEPATH"
