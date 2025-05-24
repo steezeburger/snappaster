@@ -19,14 +19,16 @@ for easy image use with Claude Code and maybe other ai tooling
 ## Configuration
 
 * Default save location is `$HOME/Pictures/snappaster-snapshots`
-* Customize save location by setting the `SNAPSHOT_DIR` environment variable:
-  * Create or edit the `.env` file with your preferred location:
+* Camera device is auto-detected from available webcams
+* Customize settings by setting environment variables:
+  * Create or edit the `.env` file:
     ```sh
     SNAPSHOT_DIR=$HOME/your/custom/path
+    CAMERA_DEVICE="Your Webcam Name"
     ```
   * Or set temporarily when running:
     ```sh
-    SNAPSHOT_DIR=/path/to/snapshots ./snappaster
+    SNAPSHOT_DIR=/path/to/snapshots CAMERA_DEVICE="FaceTime HD Camera" ./snappaster
     ```
 
 ## Usage
